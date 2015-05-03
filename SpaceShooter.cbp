@@ -32,26 +32,27 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add directory="C:/SFML-2.1/include" />
+			<Add directory="/usr/include/SFML" />
 		</Compiler>
 		<Linker>
-			<Add library="C:\SFML-2.1\lib\libsfml-graphics.a" />
-			<Add library="C:\SFML-2.1\lib\libsfml-graphics-d.a" />
-			<Add library="C:\SFML-2.1\lib\libsfml-system.a" />
-			<Add library="C:\SFML-2.1\lib\libsfml-system-d.a" />
-			<Add library="C:\SFML-2.1\lib\libsfml-window.a" />
-			<Add library="C:\SFML-2.1\lib\libsfml-window-d.a" />
-			<Add directory="C:/SFML-2.1/lib" />
+			<Add library="/usr/lib/x86_64-linux-gnu/libsfml-system.so" />
+			<Add library="/usr/lib/x86_64-linux-gnu/libsfml-window.so" />
+			<Add library="/usr/lib/x86_64-linux-gnu/libsfml-graphics.so" />
+			<Add library="/usr/lib/x86_64-linux-gnu/libsfml-audio.so" />
+			<Add library="/usr/lib/x86_64-linux-gnu/libsfml-network.so" />
+			<Add directory="/usr/lib/x86_64-linux-gnu" />
 		</Linker>
 		<Unit filename="include/Bullet.h" />
 		<Unit filename="include/Direction.h" />
 		<Unit filename="include/EnemyShip.h" />
 		<Unit filename="include/Game.h" />
+		<Unit filename="include/Map.h" />
 		<Unit filename="include/Ship.h" />
 		<Unit filename="src/Bullet.cpp" />
 		<Unit filename="src/Direction.cpp" />
 		<Unit filename="src/EnemyShip.cpp" />
 		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/Ship.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Extensions>

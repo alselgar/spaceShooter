@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "Map.h"
 
 Game::Game() :  mWindow(sf::VideoMode(640, 480), "SFML Application"), playerShip((resX/2) - 25, mapLength-100) {
 
@@ -38,6 +39,10 @@ Game::Game() :  mWindow(sf::VideoMode(640, 480), "SFML Application"), playerShip
     text.setString("Probando...");
     text.setPosition(25, 5900);
 
+    //Testing maps
+    //Map testMap = Map(15, 10);
+    Map testMap = Map("mapFile");
+    testMap.printMatrix();
    // bullet = Bullet(playerShip.getX(), playerShip.getY());
 
     //Testing Views
