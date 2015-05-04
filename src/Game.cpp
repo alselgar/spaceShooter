@@ -1,18 +1,22 @@
 #include "Game.h"
 #include "Map.h"
 
-Game::Game() :  mWindow(sf::VideoMode(640, 480), "SFML Application"), playerShip((resX/2) - 25, mapLength-100) {
+Game::Game() {
 
-//    mWindow = sf::RenderWindow(sf::VideoMode(640, 480), "SFML Application");  // this doesn't work
-//    playerShip = Ship(220, 5900);
-//    testEnemy = Ship(220, 5000);
+    mWindow = new sf::RenderWindow(sf::VideoMode(640, 480), "SFML Application");  // this doesn't work
+
+    Map testMap = Map("mapFile");
+    testMap.printMatrix();
+
+    mapLength = 50 * testMap.getnumTilesY();
+    playerShip = new Ship((resX/2) - 25, mapLength-100);
 
     gameView = sf::View(sf::FloatRect(0, mapLength-500, resX, resY));
     mIsMovingDown = mIsMovingLeft = mIsMovingUp = mIsMovingRight = false;
     playerSpeed = 150.0;
     timePerFrame = sf::seconds(1.f / 60.f);
 
-    playerShip.setSpeed(playerSpeed);
+    playerShip->setSpeed(playerSpeed);
 
     if(!backgroundTexture.loadFromFile("tile.png")) {
         // Loading error
@@ -41,8 +45,7 @@ Game::Game() :  mWindow(sf::VideoMode(640, 480), "SFML Application"), playerShip
 
     //Testing maps
     //Map testMap = Map(15, 10);
-    Map testMap = Map("mapFile");
-    testMap.printMatrix();
+
    // bullet = Bullet(playerShip.getX(), playerShip.getY());
 
     //Testing Views
@@ -62,7 +65,7 @@ void Game::run() {
     sf::Clock clock;
     sf::Time timeSinceLastUpdate = sf::Time::Zero;
 
-    while(mWindow.isOpen()) {
+    while(mWindow->isOpen()) {
         processEvents();
         timeSinceLastUpdate += clock.restart();
         while(timeSinceLastUpdate > timePerFrame) { //it's time to update the game (not render)
@@ -77,7 +80,7 @@ void Game::run() {
 
 void Game::processEvents() {
     sf::Event event;
-    while (mWindow.pollEvent(event)) {
+    while (mWindow->pollEvent(event)) {
 
         switch(event.type) {
 
@@ -88,7 +91,7 @@ void Game::processEvents() {
                 handlePlayerInput(event.key.code, false);
                 break;
             case sf::Event::Closed:
-                mWindow.close();
+                mWindow->close();
                 break;
             default:
                 break;
@@ -100,10 +103,10 @@ void Game::processEvents() {
 void Game::update(sf::Time deltaTime) {
 
     //Checking map bounds
-    if(playerShip.getX() < 0)
-        playerShip.moveTo(0, playerShip.getY());
-    if(playerShip.getX() > resX-playerShip.getDimensions().x)
-        playerShip.moveTo(resX-playerShip.getDimensions().x, playerShip.getY());
+    if(playerShip->getX() < 0)
+        playerShip->moveTo(0, playerShip->getY());
+    if(playerShip->getX() > resX-playerShip->getDimensions().x)
+        playerShip->moveTo(resX-playerShip->getDimensions().x, playerShip->getY());
 
     sf::Vector2f playerShip_movement(0.f, 0.f);
 
@@ -118,11 +121,11 @@ void Game::update(sf::Time deltaTime) {
 
     //Updates ship, camera position, text position
     playerShip_movement = playerShip_movement * deltaTime.asSeconds();
-    playerShip.move(playerShip_movement);
+    playerShip->move(playerShip_movement);
     gameView.move(0, playerShip_movement.y);
     text.move(0, playerShip_movement.y);
 
-    mWindow.setView(gameView);
+    mWindow->setView(gameView);
 //    std::cout << "Posicion de la nave: posx " << playerShip.getX()  << " posy " << playerShip.getY() << std::endl;
 //    std::cout << "Centro de la camara: centerx " << gameView.getCenter().x  << " centery " << gameView.getCenter().y << std::endl;
 
@@ -135,7 +138,7 @@ void Game::update(sf::Time deltaTime) {
 
     //Check collisions between player and enemies
     for(int i=0; i<enemyList.size(); i++) {
-        if(playerShip.intersects(enemyList[i])) {
+        if(playerShip->intersects(enemyList[i])) {
             enemyList.erase(enemyList.begin()+i); // The enemy is destroyed
             std::cout << "Collission detected with " << i << std::endl;
         }
@@ -165,19 +168,19 @@ void Game::update(sf::Time deltaTime) {
 }
 
 void Game::render() {
-    mWindow.clear();
-    mWindow.draw(backgroundSprite);
-    playerShip.draw(mWindow);
+    mWindow->clear();
+    mWindow->draw(backgroundSprite);
+    playerShip->draw(*mWindow);
     //draws the bullets
     for(int i=0; i<bulletList.size(); i++)
-        bulletList[i].draw(mWindow);
+        bulletList[i].draw(*mWindow);
     //draws the enemies
     for(int i=0; i<enemyList.size(); i++)
-        enemyList[i]. draw(mWindow);
+        enemyList[i]. draw(*mWindow);
 
     //std::cout << "Enemy list size: " << enemyList.size() << std::endl;
-    mWindow.draw(text);
-    mWindow.display();
+    mWindow->draw(text);
+    mWindow->display();
 }
 
 void Game::handlePlayerInput(sf::Keyboard::Key key, bool isPressed) {
@@ -195,7 +198,7 @@ void Game::handlePlayerInput(sf::Keyboard::Key key, bool isPressed) {
         mIsMovingRight = isPressed;
 
     else if(key == sf::Keyboard::Space && isPressed == false)
-        bulletList.push_back(Bullet(playerShip.getX() + playerShip.getDimensions().x /2, playerShip.getY()));
+        bulletList.push_back(Bullet(playerShip->getX() + playerShip->getDimensions().x /2, playerShip->getY()));
 
     else if(key == sf::Keyboard::Escape)
         exit(0);

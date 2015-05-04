@@ -11,6 +11,7 @@ class Map
         int getnumTilesX();
         int getnumTilesY();
         void printMatrix();
+        char** getMapMatrix();
     protected:
     private:
         int numTilesX;

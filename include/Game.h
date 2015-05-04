@@ -8,9 +8,10 @@
 #include "EnemyShip.h"
 #include "Bullet.h"
 
-const int mapLength = 6000;
+//const int mapLength = 6000;
 const int resX = 640;
 const int resY = 480;
+const int tileSize = 50;
 
 class Game
 {
@@ -25,15 +26,16 @@ class Game
         void render();
         void handlePlayerInput(sf::Keyboard::Key key, bool isPressed);
 
-        sf::RenderWindow mWindow;
+        sf::RenderWindow *mWindow;
         bool mIsMovingUp, mIsMovingDown, mIsMovingLeft, mIsMovingRight;
         float playerSpeed;
         sf::Time timePerFrame;
 
         sf::Texture backgroundTexture;
         sf::Sprite backgroundSprite;
+        int mapLength;
 
-        Ship playerShip;
+        Ship *playerShip;
 
         //Testing views
         sf::View gameView;

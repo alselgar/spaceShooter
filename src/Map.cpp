@@ -65,3 +65,15 @@ void Map::printMatrix() {
         cout << endl;
     }
 }
+
+int Map::getnumTilesX() {
+    return numTilesX;
+}
+
+int Map::getnumTilesY() {
+    return numTilesY;
+}
+
+char** Map::getMapMatrix() {
+    return mapMatrix;
+}
