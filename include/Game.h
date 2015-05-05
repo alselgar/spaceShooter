@@ -33,7 +33,7 @@ class Game
 
         sf::Texture backgroundTexture;
         sf::Sprite backgroundSprite;
-        int mapLength;
+        int mapWidth, mapLength;
 
         Ship *playerShip;
 
