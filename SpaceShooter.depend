@@ -445,7 +445,7 @@
 1412008114 /home/alex/Documents/SpaceShooter/include/Direction.h
 	<math.h>
 
-1412009628 source:/home/alex/Documents/SpaceShooter/src/EnemyShip.cpp
+1431509145 source:/home/alex/Documents/SpaceShooter/src/EnemyShip.cpp
 	"EnemyShip.h"
 	"Direction.h"
 	<math.h>
@@ -454,10 +454,11 @@
 	<Ship.h>
 	"Direction.h"
 
-1409331484 /home/alex/Documents/SpaceShooter/include/Ship.h
+1431509771 /home/alex/Documents/SpaceShooter/include/Ship.h
 	<iostream>
 	"SFML/Graphics.hpp"
 	"Bullet.h"
+	"Entity.h"
 
 1405875938 source:/home/alex/Documents/SpaceShooter/src/main.cpp
 	"Game.h"
@@ -473,7 +474,7 @@
 1409332614 source:/home/alex/Documents/SpaceShooter/src/Ship.cpp
 	"Ship.h"
 
-1430759169 source:/home/alex/Documents/SpaceShooter/src/Game.cpp
+1430821331 source:/home/alex/Documents/SpaceShooter/src/Game.cpp
 	"Game.h"
 	"Map.h"
 
@@ -483,4 +484,20 @@
 	"Map.h"
 
 1430755726 /home/alex/Documents/SpaceShooter/include/Map.h
+
+1430820991 source:/home/alex/Documents/SpaceShooter/src/Bomb.cpp
+	"Bomb.h"
+
+1430820909 /home/alex/Documents/SpaceShooter/include/Bomb.h
+	"SFML/Graphics.hpp"
+	"Ship.h"
+	"Bullet.h"
+
+1431507964 /home/alex/Documents/SpaceShooter/include/Entity.h
+	"SFML/Graphics.hpp"
+	"Bullet.h"
+
+1431508276 source:/home/alex/Documents/SpaceShooter/src/Entity.cpp
+	"Entity.h"
+	<iostream>
 

@@ -3,7 +3,7 @@
 
 Game::Game() {
 
-    mWindow = new sf::RenderWindow(sf::VideoMode(640, 480), "SFML Application");  // this doesn't work
+    mWindow = new sf::RenderWindow(sf::VideoMode(640, 480), "SFML Application");
 
     Map testMap = Map("mapFile");
     testMap.printMatrix();

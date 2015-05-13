@@ -42,12 +42,14 @@
 			<Add library="/usr/lib/x86_64-linux-gnu/libsfml-network.so" />
 			<Add directory="/usr/lib/x86_64-linux-gnu" />
 		</Linker>
+		<Unit filename="include/Bomb.h" />
 		<Unit filename="include/Bullet.h" />
 		<Unit filename="include/Direction.h" />
 		<Unit filename="include/EnemyShip.h" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/Ship.h" />
+		<Unit filename="src/Bomb.cpp" />
 		<Unit filename="src/Bullet.cpp" />
 		<Unit filename="src/Direction.cpp" />
 		<Unit filename="src/EnemyShip.cpp" />

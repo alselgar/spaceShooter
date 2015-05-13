@@ -4,9 +4,6 @@
 
 EnemyShip::EnemyShip(int x, int y) : Ship(x, y)
 {
-   if(!textureForward.loadFromFile("enemyShip.png")) {
-        std::cout << "Error loading ship texture - forward" << std::endl;
-    }
 
      if(!textureLeft.loadFromFile("enemyShip_left.png")) {
         std::cout << "Error loading ship - left" << std::endl;
@@ -15,8 +12,7 @@ EnemyShip::EnemyShip(int x, int y) : Ship(x, y)
      if(!textureRight.loadFromFile("enemyShip_right.png")) {
         std::cout << "Error loading ship - right" << std::endl;
     }
-    sprite.setTexture(textureForward);
-    sprite.setPosition(x, y);
+
     speed = 100.0;
     path.push_back(Direction(90, 200));
     path.push_back(Direction(135, 200));

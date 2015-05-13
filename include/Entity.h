@@ -2,6 +2,7 @@
 #define ENTITY_H
 
 #include "SFML/Graphics.hpp"
+#include "Bullet.h"
 
 class Entity
 {
@@ -14,6 +15,7 @@ class Entity
         sf::Vector2f getDimensions();
         sf::FloatRect getSpriteGlobalBounds();
         bool intersects(Entity &e);
+        bool intersects(Bullet &b);
 
     protected:
         sf::Texture mainTexture;

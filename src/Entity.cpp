@@ -42,6 +42,6 @@ bool Entity::intersects(Entity &e) {
     return mainSprite.getGlobalBounds().intersects(e.getSpriteGlobalBounds());
 }
 
-
-
-
+bool Entity::intersects(Bullet &b) {
+    return mainSprite.getGlobalBounds().intersects(b.getCircleShapeGlobalBounds());
+}
