@@ -37,16 +37,18 @@ Game::Game() {
     //enemyList.push_back(testEnemy1);
     //enemyList.push_back(testEnemy2);
     char **m = testMap.getMapMatrix();
-    for(int i=0; i<testMap.getnumTilesX(); i++)
+    for(int i=0; i<testMap.getnumTilesX(); i++) {
         for(int j=0; j<testMap.getnumTilesX(); j++) {
             switch (m[i][j]) {
                 case 'e':
-                    enemyList.push_back(EnemyShip(i*tileSize, j*tileSize));
+                    enemyList.push_back(EnemyShip(j*tileSize, i*tileSize));
+                    std::cout << "Inserted enemyShip in " << i << " " << j << std::endl;
                     break;
                 default:
                     break;
             }
         }
+    }
 
     if(!font.loadFromFile("arial.ttf"))
         std::cout << "Error loading font" << std::endl;
@@ -172,12 +174,6 @@ void Game::update(sf::Time deltaTime) {
         enemyList[i].followPath(deltaTime);
     }
 
-  /*  if(mIsMovingLeft)
-        playerShip.setLeftSprite();
-    else if(mIsMovingRight)
-        playerShip.setRightSprite();
-    else playerShip.setForwardSprite();*/
-
 }
 
 void Game::render() {
@@ -189,7 +185,7 @@ void Game::render() {
         bulletList[i].draw(*mWindow);
     //draws the enemies
     for(int i=0; i<enemyList.size(); i++)
-        enemyList[i]. draw(*mWindow);
+        enemyList[i].draw(*mWindow);
 
     //std::cout << "Enemy list size: " << enemyList.size() << std::endl;
     mWindow->draw(text);
