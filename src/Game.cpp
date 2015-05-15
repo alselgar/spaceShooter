@@ -31,6 +31,7 @@ Game::Game() {
     playerShip = new Ship((resX/2) - 25, mapLength-100);
     playerShip->setSpeed(playerSpeed);
 
+
     //static EnemyShip testEnemy1(250, 5000); // has to be static to be displayed
     //static EnemyShip testEnemy2(500, 5000);
 
@@ -41,9 +42,17 @@ Game::Game() {
         for(int j=0; j<testMap.getnumTilesX(); j++) {
             switch (m[i][j]) {
                 case 'e':
-                    enemyList.push_back(EnemyShip(j*tileSize, i*tileSize));
-                    std::cout << "Inserted enemyShip in " << i << " " << j << std::endl;
+                {
+                    EnemyShip *e = new EnemyShip(j*tileSize, i*tileSize);
+                    enemyList.push_back(*e);
                     break;
+                }
+                case 'b':
+                {
+                    Bomb *b = new Bomb(j*tileSize, i*tileSize);
+                    bombList.push_back(*b);
+                    break;
+                }
                 default:
                     break;
             }
@@ -155,22 +164,39 @@ void Game::update(sf::Time deltaTime) {
     for(int i=0; i<enemyList.size(); i++) {
         if(playerShip->intersects(enemyList[i])) {
             enemyList.erase(enemyList.begin()+i); // The enemy is destroyed
-            std::cout << "Collission detected with " << i << std::endl;
+            std::cout << "Collission detected with enemy ship " << i << std::endl;
         }
     }
 
+    for(int i=0; i<bombList.size(); i++) {
+        if(playerShip->intersects(bombList[i])) {
+            bombList.erase(bombList.begin()+i); // The enemy is destroyed
+            std::cout << "Collission detected with bomb " << i << std::endl;
+        }
+    }
+
+
     //Check collisions between bullets and enemies
-    for(int i=0; i<enemyList.size(); i++)
-        for(int j=0; j<bulletList.size(); j++)
-            if(enemyList[i].intersects(bulletList[j])) {
-               enemyList.erase(enemyList.begin()+i); // The enemy is destroyed
-               bulletList.erase(bulletList.begin()+j); // The bullet is destroyed
-               std::cout << "Bullet " << j << " hits " << "enemy " << i << std::endl;
+
+    for(int i=0; i<bulletList.size(); i++) {
+        for(int j=0; j<enemyList.size(); j++) {
+            if(bulletList[i].intersects(enemyList[j])) {
+                bulletList.erase(bulletList.begin()+i); // The bullet is destroyed
+                enemyList.erase(enemyList.begin()+j); // The enemy is destroyed
+               std::cout << "Bullet " << i << " hits " << "enemy " << j << std::endl;
             }
+        }
+        for(int j=0; j<bombList.size(); j++) {
+            if(bulletList[i].intersects(bombList[j])) {
+                bulletList.erase(bulletList.begin()+i); // The bullet is destroyed
+                bombList.erase(bombList.begin()+j); // The bomb is destroyed
+               std::cout << "Bullet " << i << " hits " << "bomb " << j << std::endl;
+            }
+        }
+    }
 
     // Move enemy ships
     for(int i=0; i<enemyList.size(); i++) {
-        //enemyList[i].move(sf::Vector2f(0.0, playerSpeed) * deltaTime.asSeconds());
         enemyList[i].followPath(deltaTime);
     }
 
@@ -186,6 +212,10 @@ void Game::render() {
     //draws the enemies
     for(int i=0; i<enemyList.size(); i++)
         enemyList[i].draw(*mWindow);
+
+    //draws the bombs
+    for(int i=0; i<bombList.size(); i++)
+        bombList[i].draw(*mWindow);
 
     //std::cout << "Enemy list size: " << enemyList.size() << std::endl;
     mWindow->draw(text);

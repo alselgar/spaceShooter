@@ -6,6 +6,7 @@
 #include <vector>
 #include "Ship.h"
 #include "EnemyShip.h"
+#include "Bomb.h"
 #include "Bullet.h"
 
 //const int mapLength = 6000;
@@ -45,6 +46,9 @@ class Game
 
         //Enemy list
         std::vector<EnemyShip> enemyList;
+
+        //Bomb list
+        std::vector<Bomb> bombList;
 
         sf::Font font;
         sf::Text text;

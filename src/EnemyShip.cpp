@@ -4,13 +4,17 @@
 
 EnemyShip::EnemyShip(int x, int y) : Ship(x, y)
 {
+    if(!mainTexture.loadFromFile("enemyShip.png")) {
+        std::cout << "Error loading enemy ship" << std::endl;
+    }
+
 
      if(!textureLeft.loadFromFile("enemyShip_left.png")) {
-        std::cout << "Error loading ship - left" << std::endl;
+        std::cout << "Error loading enemy ship - left" << std::endl;
     }
 
      if(!textureRight.loadFromFile("enemyShip_right.png")) {
-        std::cout << "Error loading ship - right" << std::endl;
+        std::cout << "Error loading enemy ship - right" << std::endl;
     }
 
     speed = 100.0;

@@ -46,6 +46,7 @@
 		<Unit filename="include/Bullet.h" />
 		<Unit filename="include/Direction.h" />
 		<Unit filename="include/EnemyShip.h" />
+		<Unit filename="include/Entity.h" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/Ship.h" />
@@ -53,6 +54,7 @@
 		<Unit filename="src/Bullet.cpp" />
 		<Unit filename="src/Direction.cpp" />
 		<Unit filename="src/EnemyShip.cpp" />
+		<Unit filename="src/Entity.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/Ship.cpp" />

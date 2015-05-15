@@ -433,11 +433,12 @@
 1412011712 c:\users\alex\documents\juegos sfml\spaceshooter\include\direction.h
 	<math.h>
 
-1408903386 source:/home/alex/Documents/SpaceShooter/src/Bullet.cpp
+1431710913 source:/home/alex/Documents/SpaceShooter/src/Bullet.cpp
 	"Bullet.h"
 
-1408903330 /home/alex/Documents/SpaceShooter/include/Bullet.h
+1431712982 /home/alex/Documents/SpaceShooter/include/Bullet.h
 	<SFML/Graphics.hpp>
+	"Entity.h"
 
 1412008142 source:/home/alex/Documents/SpaceShooter/src/Direction.cpp
 	"Direction.h"
@@ -445,16 +446,16 @@
 1412008114 /home/alex/Documents/SpaceShooter/include/Direction.h
 	<math.h>
 
-1431509145 source:/home/alex/Documents/SpaceShooter/src/EnemyShip.cpp
+1431707446 source:/home/alex/Documents/SpaceShooter/src/EnemyShip.cpp
 	"EnemyShip.h"
 	"Direction.h"
 	<math.h>
 
-1409001982 /home/alex/Documents/SpaceShooter/include/EnemyShip.h
-	<Ship.h>
+1431712163 /home/alex/Documents/SpaceShooter/include/EnemyShip.h
+	"Ship.h"
 	"Direction.h"
 
-1431509771 /home/alex/Documents/SpaceShooter/include/Ship.h
+1431510418 /home/alex/Documents/SpaceShooter/include/Ship.h
 	<iostream>
 	"SFML/Graphics.hpp"
 	"Bullet.h"
@@ -463,18 +464,19 @@
 1405875938 source:/home/alex/Documents/SpaceShooter/src/main.cpp
 	"Game.h"
 
-1430812574 /home/alex/Documents/SpaceShooter/include/Game.h
+1431628844 /home/alex/Documents/SpaceShooter/include/Game.h
 	<SFML/Graphics.hpp>
 	<iostream>
 	<vector>
 	"Ship.h"
 	"EnemyShip.h"
+	"Bomb.h"
 	"Bullet.h"
 
-1409332614 source:/home/alex/Documents/SpaceShooter/src/Ship.cpp
+1431510418 source:/home/alex/Documents/SpaceShooter/src/Ship.cpp
 	"Ship.h"
 
-1430821331 source:/home/alex/Documents/SpaceShooter/src/Game.cpp
+1431710589 source:/home/alex/Documents/SpaceShooter/src/Game.cpp
 	"Game.h"
 	"Map.h"
 
@@ -485,19 +487,18 @@
 
 1430755726 /home/alex/Documents/SpaceShooter/include/Map.h
 
-1430820991 source:/home/alex/Documents/SpaceShooter/src/Bomb.cpp
+1431626950 source:/home/alex/Documents/SpaceShooter/src/Bomb.cpp
 	"Bomb.h"
 
-1430820909 /home/alex/Documents/SpaceShooter/include/Bomb.h
+1431708364 /home/alex/Documents/SpaceShooter/include/Bomb.h
 	"SFML/Graphics.hpp"
 	"Ship.h"
 	"Bullet.h"
 
-1431507964 /home/alex/Documents/SpaceShooter/include/Entity.h
+1431713447 /home/alex/Documents/SpaceShooter/include/Entity.h
 	"SFML/Graphics.hpp"
-	"Bullet.h"
 
-1431508276 source:/home/alex/Documents/SpaceShooter/src/Entity.cpp
-	"Entity.h"
+1431713461 source:/home/alex/Documents/SpaceShooter/src/Entity.cpp
 	<iostream>
+	"Entity.h"
 

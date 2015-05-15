@@ -31,3 +31,7 @@ int Bullet::getY() {
 sf::FloatRect Bullet::getCircleShapeGlobalBounds() {
     return cs.getGlobalBounds();
 }
+
+bool Bullet::intersects(Entity &e) {
+    return cs.getGlobalBounds().intersects(e.getSpriteGlobalBounds());
+}

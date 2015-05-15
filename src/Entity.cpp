@@ -1,5 +1,6 @@
-#include "Entity.h"
 #include <iostream>
+#include "Entity.h"
+
 
 Entity::Entity(char *spritePath, int x, int y)
 {
@@ -40,8 +41,4 @@ sf::FloatRect Entity::getSpriteGlobalBounds() {
 
 bool Entity::intersects(Entity &e) {
     return mainSprite.getGlobalBounds().intersects(e.getSpriteGlobalBounds());
-}
-
-bool Entity::intersects(Bullet &b) {
-    return mainSprite.getGlobalBounds().intersects(b.getCircleShapeGlobalBounds());
 }

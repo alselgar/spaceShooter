@@ -1,7 +1,7 @@
 #ifndef ENEMYSHIP_H
 #define ENEMYSHIP_H
 
-#include <Ship.h>
+#include "Ship.h"
 #include "Direction.h"
 
 

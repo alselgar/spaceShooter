@@ -1,6 +1,7 @@
 #ifndef BULLET_H
 #define BULLET_H
 #include <SFML/Graphics.hpp>
+#include "Entity.h"
 
 class Bullet
 {
@@ -12,6 +13,7 @@ class Bullet
         int getX();
         int getY();
         sf::FloatRect getCircleShapeGlobalBounds();
+        bool intersects(Entity &e);
     private:
         sf::CircleShape cs;
 };

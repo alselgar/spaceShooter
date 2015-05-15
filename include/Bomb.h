@@ -14,6 +14,8 @@ public:
 
 protected:
     sf::Texture yellow;
+private:
+
 };
 
 #endif // BOMB_H

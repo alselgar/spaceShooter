@@ -2,7 +2,9 @@
 #define ENTITY_H
 
 #include "SFML/Graphics.hpp"
-#include "Bullet.h"
+//#include "Bullet.h"
+
+class Bullet; //this avoids a circular dependency between Bullet and Entity
 
 class Entity
 {
